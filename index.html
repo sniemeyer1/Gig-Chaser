@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Project 1</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/izimodal/1.5.1/css/iziModal.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
+    <link href="https://fonts.googleapis.com/css?family=Shrikhand" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato|Shrikhand" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>    
+    <script src="https://www.gstatic.com/firebasejs/5.1.0/firebase.js"></script>
+    <script src="https://momentjs.com/downloads/moment-with-locales.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+    <script src="assets/javascript/top-five-songs.js"></script>
+
+</head>
+<body>
+    <div class="modal fade" id="hotels-modal" tabindex="-1" role="dialog" aria-labelledby="hotelsModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div id="hotels-map"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="bars-modal" tabindex="-1" role="dialog" aria-labelledby="barsModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div id="bars-map"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container">
+        <div class="row"> <!--starts row 1-->
+            <nav class="navbar navbar-light bg-transparent">GigChaser
+                </br>
+            </nav>
+        </div> <!--ends row 1-->
+        <div class="row"> <!--starts row 2-->
+                <div class="card col-md-4">
+                        <div class="card-header">Find a Gig</div>
+                        
+                        <form>
+                            <div class="form-row">
+                                <div class="col">
+                                    <p>Search Band</p>
+                                    <div class="input-group mb-3">
+                                        <input type="text" class="form-control" id="band-input" placeholder="Radiohead" aria-label="Search Band" aria-describedby="basic-addon2">
+                                    </div>
+                                </div>
+                              <!--  <div class="col">
+                                    <p>City <input type="checkbox" value="use-current" checked> Use Current</p>
+                                    <div class="input-group mb-3">
+                                        <input type="text" class="form-control" id="location-input" placeholder="Kansas City" aria-label="Search Location" aria-describedby="basic-addon2">
+                                    </div>
+                                </div> -->
+                            </div>
+                            <div class="form-row">
+                                <div class="col">
+                                    <p>Start Date</p>
+                                    <div class="input-group mb-3">
+                                        <input type="date" id="start-date-input" class="form-control" aria-label="Start Date" aria-describedby="basic-addon2">
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <p>End Date</p>
+                                   <!--  <p><input type="checkbox" value="next-year" checked> Next Year</p> -->
+                                    <div class="input-group mb-3">
+                                        <input type="date" id="end-date-input" class="form-control" aria-label="End Date" aria-describedby="basic-addon2">
+                                    </div>
+                                </div>
+                            </div>
+                            
+                                <button id="submit-search" class="btn btn-sm search-button" type="button">Search</button>
+                            
+                        </form>
+                </div> 
+
+                 <div class="card col-md-4 embed-responsive min-height no-display show-on-click">
+                    <div class="card-header">Top YouTube Video</div>
+                    <div class="card-body" id="top-video"></div>
+                </div>
+
+                <div class="card col-md-4 no-display show-on-click">
+                    <div class="card-header">Top 3 Songs - last.fm</div>
+                    <div class="card-body" id="top-songs"></div>
+                </div>
+               
+                
+            
+               
+        </div> <!--ends row 2-->
+        
+        <div class="row"> <!--starts row 3-->
+            
+            <div class="card col-md-8 no-display show-on-click">
+                <div class="card-header">Gig Results - click to display a map</div>
+                <div class="card-body">
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                        <div id="search-results"></div>
+                    </div>
+                </div>
+            </div>    
+           
+            <div class="card col-md-4 no-display show-on-click" >
+                <div class="card-header">Previous Gig Searches</div>
+                <div class="card-body" id="previous-artists"></div>
+                <!-- <button id="clear-list" class="btn clear-button" type="button">Clear List</button> -->   
+            </div>
+
+        </div>  <!--ends row 3-->
+
+        <div class="row no-display show-on-click-venue"> <!--starts row 4-->
+            <div class="card col-md-12">
+                <div class="card-header">Map of Venue</div> 
+                <div class="row">
+                    <div class="card col-md-8 embed-responsive min-height" id="embed-venue"></div>
+                    <div class="card col-md-4">
+                        <div id="nearby-div">
+                            <div id="show-me">Where can I get a drink around here?</div>
+                            <div id="nearby-bars-div"></div>
+                            <div id="show-me">Where am I going to stay?</div>
+                            <div id="nearby-hotels-div"></div>
+                        </div>
+                        <div class="card-footer"></div> 
+                    </div>
+                </div>
+            </div>    
+        </div>  <!--ends row 4-->
+
+
+        <div class="row"> <!--starts row 1-->
+            <nav class="navbar navbar-light bg-transparent">
+                </br>
+            </nav>
+        </div>
+
+    </div> <!--ends main cointainter-->
+    
+    
+    
+          <script src="assets/javascript/script.js"></script>
+
+</body>
+</html>

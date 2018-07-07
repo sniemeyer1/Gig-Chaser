@@ -1,0 +1,114 @@
+a:link {
+    text-decoration: none;
+    background-color: transparent;
+}
+
+a:visited {
+    text-decoration: none;
+}
+
+a:hover {
+    color: inherit;
+    text-decoration: underline;
+}
+
+a:active {
+    text-decoration: underline;
+}
+
+.no-display {
+    display: none;
+}
+
+button:focus {
+    outline:0;
+}
+
+.navbar {
+    font-family: 'Shrikhand', cursive;
+    font-size: 60px;
+}
+
+#show-me {
+    font-family: 'Shrikhand', cursive;
+    font-size: 24px;
+    padding: 15px;
+}
+
+body {
+    background-color: #579C87;
+    color: #FCCA46;
+    font-family: 'Lato', sans-serif;
+    
+
+}
+.card {
+    background-color: #233D4D;
+    border-color: #FCCA46;
+    border-width: 1px;
+    font-size: 12px;
+}
+
+.card-header {
+    font-size: 18px;
+    background-color: #233D4D;
+}
+
+.btn {
+    background-color:#579C87;
+    color: #FCCA46;
+    border-color:#233D4D;
+    
+}
+
+.btn-sm {
+    background-color:#579C87;
+    color: #FCCA46;
+    border-color:#233D4D;
+    
+}
+
+form {
+    margin: 0px 15px 20px;
+}
+
+.form-control {
+    font-size: 10px;
+    background-color: #FCCA46;
+    color: #233D4D;
+    border-color: #579C87;
+}
+
+.form-row {
+    font-size: 10px;
+}
+
+h5 {
+    font-size: 16px;
+    padding-top: 10px;
+}
+
+p {
+    font-size: 12px;
+}
+
+#search-results {
+    margin-bottom: 10px;
+}
+
+.min-height {
+    min-height: 300px;
+}
+
+#nearby-div {
+    text-align: center
+}
+
+.btn-songs {
+    background-color:#579C87;
+    color: #FCCA46;
+    border-color:#233D4D;
+    font-size: 24px;
+}
+
+
